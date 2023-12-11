@@ -1,5 +1,6 @@
-import '@/app/ui/global.css'
-import {inter} from "@/app/ui/fonts";
+import "@/app/ui/global.css";
+import { Metadata } from "next";
+import { inter } from "@/app/ui/fonts";
 
 export default function RootLayout({
   children,
@@ -8,7 +9,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`} >{children}</body>
+      <body className={`${inter.className} antialiased`}>{children}</body>
     </html>
   );
 }
+
+export const metadata: Metadata = {
+  title: {
+    template: "%s | Acme Dashboard",
+    default: "Acme Dashboard",
+  },
+  description: "The official Next.js Learn Dashboard built with App Router.",
+  metadataBase: new URL("https://next-learn-dashboard.vercel.sh"),
+};
